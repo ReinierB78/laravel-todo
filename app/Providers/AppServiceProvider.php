@@ -37,9 +37,9 @@ class AppServiceProvider extends ServiceProvider
         }
 
         if(config('app.app_scope') == 'admin') {
-            $path = resource_path('admin');
+            $path = resource_path('admin/views');
         } else {
-            $path = resource_path('frontend');
+            $path = resource_path('frontend/views');
         }
         // dd($path);
         view()->addLocation($path);
