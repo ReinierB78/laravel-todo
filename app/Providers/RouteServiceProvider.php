@@ -35,6 +35,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+
         $this->configureRateLimiting();
 
         $this->routes(function () {
@@ -43,9 +45,18 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
+            $appScope = config('app.app_scope');
+
+            if($appScope == 'admin') {
             Route::middleware('web')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));
+                // ->namespace('App\Http\Controllers\Admin')
+                ->group(base_path('routes/admin.php'));
+                } else {
+                    Route::middleware('web')
+                        ->namespace($this->namespace)
+                        ->group(base_path('routes/web.php'));
+                }
         });
     }
 

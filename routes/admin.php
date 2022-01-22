@@ -1,9 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
-
-use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [IndexController::class, 'index']);
+Route::get('/admin', [IndexController::class, 'index']);
+// Route::get('/admin', function() {
+//     dd(config('app.app_scope'));
+// });
 
-// Route::get('/admin', [IndexController::class, 'index']);
