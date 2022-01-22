@@ -1,7 +1,9 @@
 <?php
 
+namespace App\Http\Controllers\Frontend;
+
+use App\Http\Controllers\Frontend\IndexController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,4 @@ use App\Http\Controllers\IndexController;
 
 Route::get('/', [IndexController::class, 'index']);
 
-Route::get('/bla', function () {
-    return view('welcome', ['foo' => 'bar']);
-});
+// Route::get('/admin', [IndexController::class, 'index']);
