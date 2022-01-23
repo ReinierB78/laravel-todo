@@ -22,3 +22,4 @@ Route::get('/', [IndexController::class, 'index']);
 // Route::get('/admin', [IndexController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
