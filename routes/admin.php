@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/admin', [IndexController::class, 'index']);
 //     dd(config('app.app_scope'));
 // });
 
+Route::resource('admin/users', UserController::class);
