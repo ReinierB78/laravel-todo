@@ -1,3 +1,9 @@
+@if(Auth::user())
+    {{-- You are a logged in user! --}}
+@else
+    {{-- You are new here! --}}
+@endif
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,31 +35,24 @@
             </div>
             <div class="col-md-4 offset-md-1">
                 <h5 class="mb-3">Please login</h5>
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <form id="contactForm" action="{{ url('login') }}">
+                    @csrf
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="username" type="text" placeholder="Username" data-sb-validations="required" />
-                        <label for="username">Username</label>
-                        <div class="invalid-feedback" data-sb-feedback="username:required">Username is required.</div>
+                        <input class="form-control" name="email" id="email" type="text" placeholder="Email" />
+                        <label for="username">email</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="password" type="text" placeholder="Password" data-sb-validations="required" />
+                        <input class="form-control" name="password" id="password" type="text" placeholder="Password"/>
                         <label for="password">Password</label>
-                        <div class="invalid-feedback" data-sb-feedback="password:required">Password is required.</div>
-                    </div>
-
-                    <div class="d-none" id="submitErrorMessage">
-                        <div class="text-center text-danger mb-3">Error sending message!</div>
                     </div>
                     <div class="d-grid">
                         <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
                     </div>
                 </form>
-                <p class="mt-3"><small>No account yet? You can register <a href="">here</a></small></p>
             </div>
         </div>
 
     </div>
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class, 'index']);
 
 // Route::get('/admin', [IndexController::class, 'index']);
+
+Route::get('/login', [LoginController::class, 'authenticate']);
